@@ -107,7 +107,7 @@ X_combined_data <-
 ## Combine X, Y, activity and subject data sets.
 ##-----------------------------------------------------------------
 combined_data <- cbind( subj_combined_data,
-                        cbind(merge(Y_combined_data,activities,by="activity_no"),
+                        cbind(join(Y_combined_data,activities,by="activity_no"),
                               X_combined_data))
 ## remove activity_no variable
 combined_data$activity_no <- NULL
