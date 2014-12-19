@@ -49,3 +49,5 @@ Working variables in this script are:
 * subj_combined_data:  Data frame containing combined Subject training/test data
 * combined_data:       Data frame containing all combined X/Y/Subject data, but only mean and std columns
 * final:               Data frame containing results - data set with average of each variable by activity/subject
+
+All feature variables, including units, are described in the README.txt file contained in the souce zip file (as indicated by the variable "source_file")
