@@ -32,18 +32,18 @@ data_dir        <- "UCI HAR Dataset/"
 source_file     <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
 ## Features and activity datasets - filenames
-features_file   <- paste(data_dir,"features.txt",sep="")
-activity_file   <- paste(data_dir,"activity_labels.txt",sep="")
+features_file   <- paste0(data_dir,"features.txt")
+activity_file   <- paste0(data_dir,"activity_labels.txt")
 
 ## training files
-X_train_file        <- paste(data_dir,"train/X_train.txt" ,sep="")        
-Y_train_file        <- paste(data_dir,"train/Y_train.txt",sep="")         
-subj_train_file     <- paste(data_dir,"train/subject_train.txt",sep="")
+X_train_file        <- paste0(data_dir,"train/X_train.txt")        
+Y_train_file        <- paste0(data_dir,"train/Y_train.txt")         
+subj_train_file     <- paste0(data_dir,"train/subject_train.txt")
 
 ## test files
-X_test_file         <- paste(data_dir,"test/X_test.txt",sep="")
-Y_test_file         <- paste(data_dir,"test/Y_test.txt",sep="")       
-subj_test_file      <- paste(data_dir,"test/subject_test.txt",sep="")  
+X_test_file         <- paste0(data_dir,"test/X_test.txt")
+Y_test_file         <- paste0(data_dir,"test/Y_test.txt")       
+subj_test_file      <- paste0(data_dir,"test/subject_test.txt")  
 
 #-------------
 # output files
@@ -128,6 +128,7 @@ final     <- ddply(combined_data,
                       mn
                     } )
 
-colnames(final)[3:ncol(final)] <- colnames(X_combined_data)
+## Fix up the final variable names to remvoe punctuation and remove upper case
+colnames(final)[3:ncol(final)] <- tolower(gsub("()","",gsub("-","",colnames(X_combined_data)),fixed=TRUE))
 
 write.table(final,file=final_file,row.name=FALSE)

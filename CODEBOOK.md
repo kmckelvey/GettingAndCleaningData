@@ -23,9 +23,10 @@ The script (run_analysis.R) performs the following steps
 * Load features and activity files into data frames and give appropriate column names
 * Read and combine X, Y, and Subject "train"" and "test"" data sets into corresonding data frames and set descriptive column names
 * Combined X, Y, Activity and Subject data frames into a single data frame
+* Fix up the final variable names to remvoe punctuation and remove upper case
 *  From the combined data set, create a final, independent tidy data 
 set with the average of each variable for each activity and each subject.
-* The result file contains 35 observations of 68 variables
+* The result file contains 180 observations (30 subjects, 6 activities each) of 68 variables
 
 Working variables in this script are:
 
